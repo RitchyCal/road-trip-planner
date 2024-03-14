@@ -1,24 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import { MapContainer, TileLayer } from 'react-leaflet';
 import './App.css';
 
 function App() {
+  const position: [number, number] = [51.505, -0.09]
+  const zoom: number = 4
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MapContainer center={position} zoom={zoom} scrollWheelZoom={false}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" 
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributor' />
+      </MapContainer>
     </div>
   );
 }
